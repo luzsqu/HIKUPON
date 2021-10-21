@@ -51,16 +51,16 @@ alert("Tenemos los descuentos para todos los gustos.");
 
 
 //función constructora 
-function categoria (ropa, accesorios, librerias) {
+function Categoria (ropa, accesorios, librerias) {
     this.ropa = ropa;
     this.accesorios = accesorios;
     this.librerias = librerias;
     this.informar = function() { console.log("Datos del descuento " + this.ropa + " " + this.accesorios + " " + this.librerias); }
 }
 
-const categoria1 = new categoria ("Prendas", "Aros y collares", "Libros");
+const categoria1 = new Categoria ("Prendas", "Aros y collares", "Libros");
 categoria1.informar();
-const categoria2 = new categoria("Uniformes", "Zapatillas", "articulos escolares");
+const categoria2 = new Categoria("Uniformes", "Zapatillas", "articulos escolares");
 categoria2.informar(); 
 
 // Clase 5- Interaccion con el usuario-Objetos
@@ -75,6 +75,50 @@ alert("Gracias por tu feedback");
 
 //Desafio clase 6- array 
 
+class Descuento {
+    constructor (indumentaria, hogar, viajes, librerias, papeleria, precio)
+    {
+    this.indumentaria = indumentaria;
+    this.hogar = hogar;
+    this.viajes = viajes;
+    this.librerias = librerias;
+    this.papeleria = papeleria;
+    this.precio  = precio;
+    this.venta = false;
+}
+
+sumarDescuento() { 
+    this.precio = this.precio * 0.20; 
+}
+vender() {
+    this.venta = true;
+}
+}
+    
+
+const listOfDescuento = [];
+let salida
+do{
+let selectIndumentaria = prompt("Ingrese si desea cupon para ropa casual o ropa elegante");
+let selectHogar = prompt("Ingrese si desea cupones para limpieza o deco del -hogar-");
+let selectViajes = prompt("Ingrese larga o corta distancia para elegir el viaje"); 
+let selectLibrerias = prompt ("¿Desea cupones para libros o agendas?");
+let selectPapeleria = prompt ("¿Desea cupones para cuadernos o agendas?")
+let selectPrecio = parseFloat(prompt("Ingrese el precio del producto seleccionado"));
+
+listOfDescuento.push(new Descuento (selectIndumentaria, selectHogar, selectViajes, selectLibrerias, selectPapeleria, selectPrecio));
+salida = prompt("Presione X para salir al carrito o cualquier otra tecla para continuar comprando").toLowerCase();
+}while (salida != "x");
+
+for (let i = 0; i < listOfDescuento.length; i++) {
+    listOfDescuento[i].vender();
+    listOfDescuento[i].sumarDescuento();
+    
+}       
+console.log(listOfDescuento);
+
+
+/*
 
 class Indumentaria {
     constructor(tipo, cantDescuento, compartir) {
@@ -102,7 +146,6 @@ listaIndumentaria.push(ind6);
 
 console.log (listaIndumentaria);
 
-//ej 4
 function buscarIndumentaria (categoria, indumentaria) {
     let encontrado = categoria.find(ind => ind.tipo== indumentaria); 
     if (encontrado == undefined) {
@@ -127,7 +170,7 @@ const indumentaria = [
 ]
 
 const indumentariaOrden = indumentaria.sort((ind1, ind2) => {
-    return ind1.descuento - ind2.descuento
+    return ind1.descuentos - ind2.descuentos
 })
 
-console.log(indumentariaOrden)
+console.log(indumentariaOrden)*/
