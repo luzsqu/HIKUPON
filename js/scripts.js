@@ -75,6 +75,7 @@ alert("Gracias por tu feedback");
 
 //Desafio clase 6- array 
 
+<<<<<<< HEAD
 class Descuento {
     constructor (indumentaria, hogar, viajes, librerias, papeleria, precio)
     {
@@ -119,6 +120,8 @@ console.log(listOfDescuento);
 
 
 /*
+=======
+>>>>>>> eb5add0d1f961e22a75f34371ad83918051b6665
 
 class Indumentaria {
     constructor(tipo, cantDescuento, compartir) {
@@ -146,6 +149,10 @@ listaIndumentaria.push(ind6);
 
 console.log (listaIndumentaria);
 
+<<<<<<< HEAD
+=======
+//ej 4
+>>>>>>> eb5add0d1f961e22a75f34371ad83918051b6665
 function buscarIndumentaria (categoria, indumentaria) {
     let encontrado = categoria.find(ind => ind.tipo== indumentaria); 
     if (encontrado == undefined) {
@@ -170,7 +177,14 @@ const indumentaria = [
 ]
 
 const indumentariaOrden = indumentaria.sort((ind1, ind2) => {
+<<<<<<< HEAD
     return ind1.descuentos - ind2.descuentos
 })
 
 console.log(indumentariaOrden)*/
+=======
+    return ind1.descuento - ind2.descuento
+})
+
+console.log(indumentariaOrden)
+>>>>>>> eb5add0d1f961e22a75f34371ad83918051b6665
